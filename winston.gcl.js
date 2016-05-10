@@ -16,7 +16,7 @@ var GoogleCloudLogging = winston.transports.GoogleCloudLogging = function (optio
 
   options.gcl_project_id = options.gcl_project_id || "";
   options.gcl_key_filename = options.gcl_key_filename || "";
-
+  options.gcl_log_name = options.gcl_log_name || "";
   var gcloud = require('gcloud')({
       projectId: options.gcl_project_id,
       keyFilename: options.gcl_key_filename
@@ -30,12 +30,7 @@ var GoogleCloudLogging = winston.transports.GoogleCloudLogging = function (optio
     }
   };
 
-  if(process.env.ENVIRONMENT == "PRODUCTION"){
-      this.log_bucket = this.logging.log('captiz-platform-prod');
-  }
-  else {
-      this.log_bucket = this.logging.log('captiz-platform-preprod');
-  }
+  this.log_bucket = this.logging.log(options.gcl_log_name);
 
   this.logs_queue = [];
   this.sending = false;
@@ -52,16 +47,6 @@ GoogleCloudLogging.prototype.log = function (level, msg, meta, callback) {
       data: meta
   };
   var entry = this.log_bucket.entry(this.gcl_resource, data);
-
-  var fn = function(err, apiResponse) {
-      if (err) {
-        console.log(err);
-        console.log(apiResponse);
-      }
-      else {
-          //console.log(apiResponse);
-      }
-  };
 
   if(level == "verbose" || level == "info"){
       entry.severity = 'INFO';
@@ -80,6 +65,7 @@ GoogleCloudLogging.prototype.log = function (level, msg, meta, callback) {
   if(!this.sending){
       this.sending = true;
       var self = this;
+      /** Send logs in batch to avoid reaching API limit **/
       setTimeout(function(){
           self.sending = false;
 
