@@ -24,10 +24,7 @@ var GoogleCloudLogging = winston.transports.GoogleCloudLogging = function (optio
 
   this.logging = gcloud.logging();
   this.gcl_resource = {
-      type: 'global',
-      labels: {
-        project_id: 'captiz-1099'
-    }
+      type: 'global'
   };
 
   this.log_bucket = this.logging.log(options.gcl_log_name);
