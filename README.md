@@ -3,7 +3,7 @@
 Google Cloud Logging transport for winston.js
 
 # Usage
-'''js
+``` js
 var winston = require('winston');
 //
 // Requiring `winston-googlecloud` will expose
@@ -18,4 +18,4 @@ var options = {
     gcl_log_name: "my-log"
 }
 winston.add(winston.transports.GoogleCloudLogging, options);
-'''
+```
