@@ -2,6 +2,8 @@
 
 Google Cloud Logging transport for winston.js
 
+This library is licensed under MIT Licence.
+
 # Usage
 ``` js
 var winston = require('winston');
