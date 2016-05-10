@@ -1,0 +1,22 @@
+{
+  "name": "winston-googlecloud",
+  "version": "0.1",
+  "description": "Google Cloud Logging transport for winston.js",
+  "author": "Simon Clériot <cleriotsimon@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/captiz/winston-googlecloud"
+  },
+  "keywords": [
+    "logging",
+    "winston",
+    "google cloud"
+  ],
+  "dependencies": {
+    "gcloud": "^0.29.0"
+  },
+  "devDependencies": {
+    "winston": "^2.1"
+  },
+  "main": "./winston.gcl.js"
+}
