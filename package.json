@@ -13,7 +13,7 @@
     "google cloud"
   ],
   "dependencies": {
-    "gcloud": "^0.29.0"
+    "google-cloud": "^0.40.0"
   },
   "devDependencies": {
     "winston": "^2.1"
