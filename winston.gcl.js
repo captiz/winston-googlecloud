@@ -17,7 +17,7 @@ var GoogleCloudLogging = winston.transports.GoogleCloudLogging = function (optio
   options.gcl_project_id = options.gcl_project_id || "";
   options.gcl_key_filename = options.gcl_key_filename || "";
   options.gcl_log_name = options.gcl_log_name || "";
-  var gcloud = require('gcloud')({
+  var gcloud = require('google-cloud')({
       projectId: options.gcl_project_id,
       keyFilename: options.gcl_key_filename
   });
