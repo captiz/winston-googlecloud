@@ -1,6 +1,6 @@
 {
   "name": "winston-googlecloud",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Google Cloud Logging transport for winston.js",
   "author": "Simon Clériot <cleriotsimon@gmail.com>",
   "repository": {
@@ -13,7 +13,7 @@
     "google cloud"
   ],
   "dependencies": {
-    "google-cloud": "^0.40.0"
+    "@google-cloud/logging": "latest"
   },
   "devDependencies": {
     "winston": "^2.1"
