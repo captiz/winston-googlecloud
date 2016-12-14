@@ -24,7 +24,9 @@ var GoogleCloudLogging = winston.transports.GoogleCloudLogging = function (optio
   });
 
   this.gcl_resource = {
-      type: 'global'
+      resource: {
+          type: 'global'
+      }
   };
 
   this.log_bucket = this.logging.log(options.gcl_log_name);
