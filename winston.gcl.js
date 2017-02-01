@@ -46,16 +46,16 @@ GoogleCloudLogging.prototype.log = function (level, msg, meta, callback) {
   var entry = this.log_bucket.entry(this.gcl_resource, data);
 
   if(level == "verbose" || level == "info"){
-      entry.severity = 'INFO';
+      entry.metadata.severity = 'INFO';
   }
   else if(level == "debug" || level == "silly"){
-      entry.severity = 'DEBUG';
+      entry.metadata.severity = 'DEBUG';
   }
   else if(level == "warn"){
-      entry.severity = 'WARNING';
+      entry.metadata.severity = 'WARNING';
   }
   else if(level == "error"){
-      entry.severity = 'ERROR';
+      entry.metadata.severity = 'ERROR';
   }
 
   this.logs_queue.push(entry);
